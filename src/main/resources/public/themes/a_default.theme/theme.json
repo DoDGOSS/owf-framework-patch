@@ -1,0 +1,31 @@
+{
+    "name": "a_default",
+    "display_name": "Cobalt",
+    "type": "standard",
+    "author": "OWF Community Support Team",
+    "contact_email": "ozone-developers@googlegroups.com",
+    "created_date": "January 1, 2012",
+    "modified_date": "January 1, 2012",
+    "description": "This is the default theme for OWF.",
+    "css": "themes/a_default.theme/css/a_default.css",
+    "base_url": "themes/a_default.theme/",
+
+    "contrast": "standard",
+    "owf_font_size": 12,
+
+    "thumb": "themes/a_default.theme/images/preview/COBALT_Application.png",
+    "screenshots": [
+        {
+            "url": "themes/a_default.theme/images/preview/COBALT_Components.png",
+            "description": "App Components"
+        },
+        {
+            "url": "themes/a_default.theme/images/preview/COBALT_Builder.png",
+            "description": "App Builder"
+        },
+        {
+            "url": "themes/a_default.theme/images/preview/COBALT_Application.png",
+            "description": "Split Application"
+        }
+    ]
+}
