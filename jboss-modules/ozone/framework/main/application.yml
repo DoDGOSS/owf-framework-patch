@@ -89,15 +89,9 @@ grails:
         # Enable browser caching for static assets (time in seconds) - sets 'Cache-Control' header 'max-age'
         cachePeriod: 600
 
----
-environments:
-    production:
-        server:
-            port: 8443
-            ssl:
-                enabled: true
-                key-store: './certs/keystore.jks'
-                key-store-password: 'changeit'
+    web:
+        servlet:
+            path: "/*"
 
 ---
 security:
@@ -131,30 +125,9 @@ environments:
 
     production:
         dataSource:
-            dbCreate: none
-            url: jdbc:postgresql://localhost:5432/owf
-            driverClassName: org.postgresql.Driver
-            username: owf
-            password: owf
+            dbCreate: update
+            jndiName: "java:jboss/datasources/OWF"
 
-            properties:
-                jmxEnabled: true
-                initialSize: 5
-                maxActive: 50
-                minIdle: 5
-                maxIdle: 25
-                maxWait: 10000
-                maxAge: 600000
-                timeBetweenEvictionRunsMillis: 5000
-                minEvictableIdleTimeMillis: 60000
-                validationQuery: SELECT 1
-                validationQueryTimeout: 3
-                validationInterval: 15000
-                testOnBorrow: true
-                testWhileIdle: true
-                testOnReturn: false
-                jdbcInterceptors: ConnectionState
-                defaultTransactionIsolation: 2 # TRANSACTION_READ_COMMITTED
 ---
 quartz:
     autoStartup: false
@@ -170,6 +143,8 @@ notifications:
     query.interval: 30
 
 owf:
+    initDb: false
+
     # log4j file watch interval in milliseconds
     log4jWatchTime: 180000  # 3 minutes
 

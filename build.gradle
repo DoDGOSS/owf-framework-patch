@@ -22,7 +22,7 @@ buildscript {
 
 
 group 'org.ozoneplatform'
-version '7.17.2-0-RC1'
+version '7.17.2-0-RC2'
 
 
 apply plugin: 'idea'
@@ -72,6 +72,7 @@ grails {
 configurations {
     customTomcat {}
     drivers {}
+    runtime.extendsFrom drivers
 }
 
 dependencies {

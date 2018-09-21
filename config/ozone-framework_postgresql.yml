@@ -39,7 +39,7 @@ environments:
 
     production:
         dataSource:
-            dbCreate: update
+            dbCreate: none
             url: jdbc:postgresql://localhost:5432/owf
             driverClassName: org.postgresql.Driver
             username: owf
