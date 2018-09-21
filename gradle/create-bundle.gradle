@@ -56,6 +56,14 @@ task copyDocumentation(type: Copy, group: 'bundle') {
     into file("$tomcatBundleStaging/docs")
 }
 
+task copyJbossModule(type: Zip, group: 'build') {
+    from file("jboss-modules")
+
+    archiveName "owf-jboss-modules.zip"
+
+    destinationDir file(tomcatBundleStaging)
+}
+
 task bundle(type: Zip, group: 'build') {
     dependsOn(copyFrameworkConfigurations,
               copyFrameworkSpringConfigurations,
@@ -63,6 +71,7 @@ task bundle(type: Zip, group: 'build') {
               copyFrameworkWar,
               copyPatchJar,
               copyDatabaseScripts,
+              copyJbossModule,
               copyDocumentation)
 
     from file(tomcatBundleStaging)

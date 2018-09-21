@@ -3,6 +3,8 @@ package ozone.owf.grails.controllers
 import grails.core.GrailsApplication
 import grails.util.Environment
 
+import org.springframework.http.HttpStatus
+
 import ozone.owf.enums.OwfApplicationSetting
 import ozone.owf.grails.OwfException
 import ozone.owf.grails.domain.Person
@@ -32,6 +34,10 @@ class ConfigController {
 
     def config = {
         def curUser = accountService.getLoggedInUser()
+        if (!curUser) {
+            render(status: HttpStatus.BAD_REQUEST.value(), text: "Error: No current user; not logged in?")
+            return
+        }
 
         def pDate = new Date()
         def pDateString = null

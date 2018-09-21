@@ -62,17 +62,12 @@ class BootStrap {
         XML.registerObjectMarshaller(new ServiceModelObjectMarshallerXML())
 
 
-        if (isDevelopment() || isDbCreationEnabled()) {
+        if (isDevelopment()) {
             println "Initializing database with default data"
             defaultDataLoader.initialize()
-        }
-
-        if (isDevelopment() || (isDbCreationEnabled() && configurationService.isExampleWidgetPluginEnabled())) {
             developmentDataLoader.initializeExampleWidgets()
-        }
-
-        if (isDevelopment()) {
             developmentDataLoader.initializeDevelopmentData()
+
         }
 
         /*
